@@ -1,0 +1,294 @@
+# Cursor Rules for Genome Explorer AI
+
+The repo is https://github.com/willblair0708/genome-explorer
+
+## Vision
+Create an interactive AI-powered platform that democratizes genomics education through intuitive visualizations, simulations, and natural language interactions.
+
+## Core Features
+- Interactive Genome Visualization & Analysis
+- AI-Powered Genomic Q&A System
+- Genomics Simulation Engine
+- Personalized Genome Reports
+- Educational Module System
+- Interactive Genome Playground
+
+## Code Style
+- Python 3.11+ for core functionality
+- Streamlit for UI components
+- Plotly/Matplotlib for visualizations
+- Transformers for NLP
+- Biopython for genomic analysis
+- Black + isort for code formatting
+
+## Naming Conventions
+- Classes: PascalCase (e.g., GenomeVisualizer, MutationAnalyzer)
+- Functions: snake_case (e.g., analyze_sequence, simulate_mutation)
+- Files: snake_case (e.g., genome_visualizer.py, mutation_analysis.py)
+- Constants: UPPER_CASE (e.g., DEFAULT_GENOME_PATH)
+- Variables: snake_case (e.g., gene_sequence, mutation_rate)
+- Type hints: PascalCase with descriptive suffixes (SequenceType, GenomeProps)
+
+## Testing Requirements
+- Pytest for unit testing
+- Hypothesis for property-based testing
+- Mypy for static type checking
+- Coverage.py for test coverage
+- Performance testing for simulations
+- Integration tests for AI components
+- Pre-commit hooks with Black
+
+## Branch & PR Strategy
+- main: production (protected)
+- develop: integration testing (protected)
+- feature/*: new features
+- fix/*: bug fixes
+- ai/*: AI model updates
+- viz/*: visualization updates
+
+Branch workflow:
+1. Create branch from develop:
+   ```bash
+   git checkout -b feature/name
+   ```
+
+2. Create PR documentation:
+   ```bash
+   mkdir -p docs/pr/feature-name
+   touch docs/pr/feature-name/{TODO.md,LOG.md}
+   ```
+
+3. Initialize TODO.md with structure:
+   ```markdown
+   # Feature Name TODO
+
+   ## Requirements
+   - [ ] Requirement 1
+   - [ ] Requirement 2
+
+   ## Acceptance Criteria
+   - Criteria 1
+   - Criteria 2
+   ```
+
+4. Initialize LOG.md with structure:
+   ```markdown
+   # Feature Name Log
+
+   ## Initial Setup - [Date]
+   - Created feature branch
+   - Set up documentation
+
+   ## Next Steps
+   - Step 1
+   - Step 2
+   ```
+
+5. Make changes and push regularly:
+   ```bash
+   git add .
+   git commit -m "feat/fix/chore: descriptive message"
+   git push origin feature/name
+   ```
+
+6. Update LOG.md daily with:
+   - Changes made
+   - Decisions taken
+   - Challenges faced
+   - Solutions implemented
+
+7. Track TODO.md progress:
+   - Check off completed items
+   - Add new requirements as discovered
+   - Update acceptance criteria as needed
+
+8. Open PR:
+   ```bash
+   gh pr create -B develop -H feature/name -t "type: descriptive title"
+   ```
+
+9. Get required reviews and merge:
+   - Address review comments
+   - Update documentation
+   - Squash and merge via GitHub UI
+   - Delete branch after merge
+
+PR documentation structure:
+- TODO.md: Task list, requirements, acceptance criteria
+- LOG.md: Daily progress, decisions, challenges
+
+PR requirements:
+- Descriptive title following conventional commits
+- Link related issues
+- Pass CI checks
+- Get 2 approvals
+- Add approval comment explaining why changes are good
+- Squash merge only
+- Clean commit history
+- Updated PR documentation
+
+Example approval comment:
+```
+PR approved ✅
+
+Changes look good because:
+- Follows naming conventions correctly
+- CI optimizations are well thought out
+- Test coverage is maintained
+- Code is clean and well-documented
+- No breaking changes introduced
+```
+
+## PR Template Structure
+When creating pull requests, use the following structure for clear and comprehensive documentation:
+
+```markdown
+## Description
+Brief overview of changes and their purpose
+
+## Type of Change
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] Code refactoring
+- [ ] Configuration change
+- [ ] CI/CD improvement
+[Add other relevant types]
+
+## Changes Made
+### Component Structure [or relevant section]
+- List specific changes
+- Include before → after examples
+- Note any architectural changes
+
+### Technical Improvements
+- List technical changes
+- Include version updates
+- Note configuration changes
+
+## Testing
+- [ ] Manual testing done
+- [ ] CI pipeline verified
+- [ ] Build process tested
+[Add specific test results]
+
+## Checklist
+- [ ] Code follows style guidelines
+- [ ] Self-review completed
+- [ ] No new warnings
+- [ ] Tests passing
+
+## Additional Notes
+- Future improvements
+- Known limitations
+- Migration notes
+```
+
+Example PR Description:
+```markdown
+## Description
+
+This PR enforces consistent lowercase naming for component folders and optimizes the CI workflow.
+
+## Type of Change
+
+- [x] Bug fix
+- [x] Code refactoring
+- [x] Configuration change
+- [x] CI/CD improvement
+
+## Changes Made
+
+### Component Structure
+- Enforced lowercase naming
+- Renamed: Modal → modal, Select → select
+- Fixed imports and types
+
+### CI/CD Improvements
+- Removed type-check step
+- Updated Bun to 1.0.19
+- Optimized install process
+
+## Testing
+
+- [x] Manual testing done
+- [x] CI pipeline verified
+- [x] Build process tested
+
+## Checklist
+
+- [x] Code follows style guidelines
+- [x] Self-review completed
+- [x] No new warnings
+- [x] Tests passing
+
+## Additional Notes
+
+Will re-enable type-checking after fixing module resolution.
+```
+
+## Dependencies
+- Python >= 3.11
+- Streamlit >= 1.28
+- Transformers >= 4.35
+- Plotly >= 5.18
+- Matplotlib >= 3.8
+- Pandas >= 2.1
+- NumPy >= 1.24
+- Biopython >= 1.81
+- scikit-learn >= 1.3
+
+## Build Process
+1. Development: `poetry run dev`
+2. Test: `poetry run test`
+3. Lint: `poetry run lint`
+4. Type Check: `poetry run typecheck`
+5. Format: `poetry run format`
+6. Build Package: `poetry build`
+7. Train Models: `poetry run train`
+
+## Environment Variables
+Required:
+- OPENAI_API_KEY
+- GENOME_DB_PATH
+- MODEL_WEIGHTS_PATH
+- CACHE_DIR
+- LOG_LEVEL
+- HUGGINGFACE_TOKEN
+
+## IDE Settings
+VS Code extensions:
+- Python
+- Pylance
+- Python Test Explorer
+- Python Docstring Generator
+- Jupyter
+- Git Graph
+- Docker
+
+## Performance Guidelines
+- Async processing for genome analysis
+- Caching for frequent queries
+- Lazy loading for large datasets
+- GPU acceleration for AI models
+- Memory-efficient genome processing
+- Batch processing for large operations
+- Telemetry with OpenTelemetry
+
+## Security Rules
+- Input sanitization for sequences
+- API rate limiting
+- Model input validation
+- Secure data storage
+- Access control for sensitive data
+- Data encryption at rest
+- Audit logging
+
+## Documentation
+Required for:
+- AI model architecture
+- Genome processing pipelines
+- Visualization components
+- Analysis algorithms
+- API documentation
+- Performance optimization
+- Educational content
+- Installation guide
